@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Explorer | Home</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="brand-icon">DX</div>
+        <div>
+          <div>Data Explorer</div>
+          <small>CSV viewer & quick analytics</small>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="analytics.html">Analytics</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <span class="pill">Instant CSV Insights</span>
+          <h1>Upload, browse, and search your data in seconds.</h1>
+          <p>
+            Use the controls below to load a CSV file, search across rows, and view
+            automatic summaries. Your dataset is remembered so you can continue exploring
+            on the analytics page.
+          </p>
+        </div>
+        <div class="note">
+          <strong>Tips:</strong>
+          <ul>
+            <li>Use the sample dataset if you just want to try things out.</li>
+            <li>Search filters all visible columns with a single keyword.</li>
+            <li>Switch to Analytics for column statistics and category breakdowns.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="card">
+          <h2>Load data</h2>
+          <div class="button-row">
+            <label class="file-label" for="file-input">Choose CSV</label>
+            <input id="file-input" type="file" accept=".csv,text/csv" />
+            <button id="sample-btn" class="secondary">Use sample dataset</button>
+          </div>
+          <p class="note">We keep the last dataset in your browser so you can revisit it.</p>
+        </div>
+
+        <div class="card">
+          <h2>Search rows</h2>
+          <input id="search" type="search" placeholder="Type to filter rows..." />
+          <p class="note">Search is case-insensitive and scans every column.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Dataset snapshot</h2>
+        <div class="stats-grid" id="stats"></div>
+        <div id="meta" class="note" style="display: none;"></div>
+      </section>
+
+      <section class="card">
+        <h2>Table preview</h2>
+        <div class="table-wrap">
+          <table id="data-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="note" id="empty-message">No data yet. Load a CSV to get started.</p>
+      </section>
+    </main>
+
+    <footer>Built with cyan, blue, green, and a love for quick insights.</footer>
+
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

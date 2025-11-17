@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Explorer | Analytics</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="brand-icon">DX</div>
+        <div>
+          <div>Data Explorer</div>
+          <small>CSV viewer & quick analytics</small>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="analytics.html">Analytics</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <span class="pill">Understand your data</span>
+          <h1>Instant profiling and visual highlights.</h1>
+          <p>
+            We reuse the dataset you last opened on the Home page. You can also pick a new
+            file or reload the sample data to refresh these insights.
+          </p>
+        </div>
+        <div class="note">
+          <strong>What you get:</strong>
+          <ul>
+            <li>Column-level statistics for numeric fields.</li>
+            <li>Top category breakdowns for text fields.</li>
+            <li>A quick bar chart for the most informative column.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="card">
+          <h2>Load or refresh data</h2>
+          <div class="button-row">
+            <label class="file-label" for="file-input">Choose CSV</label>
+            <input id="file-input" type="file" accept=".csv,text/csv" />
+            <button id="sample-btn" class="secondary">Use sample dataset</button>
+          </div>
+          <p class="note">
+            If nothing is loaded yet, we will automatically display the sample dataset so you can
+            see the analytics workflow.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Dataset overview</h2>
+        <div class="stats-grid" id="stats"></div>
+        <div id="meta" class="note" style="display: none;"></div>
+      </section>
+
+      <section class="controls">
+        <div class="card">
+          <h2>Numeric columns</h2>
+          <div id="numeric-stats" class="note">Load data to see minimums, maximums, and averages.</div>
+        </div>
+        <div class="card">
+          <h2>Category highlights</h2>
+          <div id="category-stats" class="note">We will list the most frequent values for text columns.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Visual snapshot</h2>
+        <div class="chart">
+          <canvas id="chart" width="900" height="300" aria-label="Bar chart"></canvas>
+        </div>
+        <p class="note" id="chart-note">Waiting for data to draw the chart.</p>
+      </section>
+    </main>
+
+    <footer>Analytics designed with cyan, blue, green, and readability.</footer>
+
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/analytics.js"></script>
+  </body>
+</html>
