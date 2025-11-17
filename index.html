@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Explorer | Home</title>
+    <title>Explorador de Dados | Início</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
@@ -11,74 +11,74 @@
       <div class="brand">
         <div class="brand-icon">DX</div>
         <div>
-          <div>Data Explorer</div>
-          <small>CSV viewer & quick analytics</small>
+          <div>Explorador de Dados</div>
+          <small>Visualização de CSV e análises rápidas</small>
         </div>
       </div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="analytics.html">Analytics</a>
+        <a href="index.html">Início</a>
+        <a href="analytics.html">Análises</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
         <div>
-          <span class="pill">Instant CSV Insights</span>
-          <h1>Upload, browse, and search your data in seconds.</h1>
+          <span class="pill">Insights imediatos em CSV</span>
+          <h1>Envie, navegue e pesquise seus dados em segundos.</h1>
           <p>
-            Use the controls below to load a CSV file, search across rows, and view
-            automatic summaries. Your dataset is remembered so you can continue exploring
-            on the analytics page.
+            Use os controles abaixo para carregar um arquivo CSV, pesquisar em todas as linhas
+            e ver resumos automáticos. O último conjunto de dados fica salvo no seu navegador
+            para continuar explorando na página de análises.
           </p>
         </div>
         <div class="note">
-          <strong>Tips:</strong>
+          <strong>Dicas:</strong>
           <ul>
-            <li>Use the sample dataset if you just want to try things out.</li>
-            <li>Search filters all visible columns with a single keyword.</li>
-            <li>Switch to Analytics for column statistics and category breakdowns.</li>
+            <li>Use o conjunto de dados de exemplo para experimentar rapidamente.</li>
+            <li>A busca filtra todas as colunas visíveis com uma única palavra-chave.</li>
+            <li>Vá para Análises para ver estatísticas de colunas e distribuições por categoria.</li>
           </ul>
         </div>
       </section>
 
       <section class="controls">
         <div class="card">
-          <h2>Load data</h2>
+          <h2>Carregar dados</h2>
           <div class="button-row">
-            <label class="file-label" for="file-input">Choose CSV</label>
+            <label class="file-label" for="file-input">Escolher CSV</label>
             <input id="file-input" type="file" accept=".csv,text/csv" />
-            <button id="sample-btn" class="secondary">Use sample dataset</button>
+            <button id="sample-btn" class="secondary">Usar conjunto de exemplo</button>
           </div>
-          <p class="note">We keep the last dataset in your browser so you can revisit it.</p>
+          <p class="note">Mantemos o último conjunto de dados no seu navegador para você revisitar.</p>
         </div>
 
         <div class="card">
-          <h2>Search rows</h2>
-          <input id="search" type="search" placeholder="Type to filter rows..." />
-          <p class="note">Search is case-insensitive and scans every column.</p>
+          <h2>Buscar linhas</h2>
+          <input id="search" type="search" placeholder="Digite para filtrar linhas..." />
+          <p class="note">A busca ignora maiúsculas/minúsculas e examina todas as colunas.</p>
         </div>
       </section>
 
       <section class="card">
-        <h2>Dataset snapshot</h2>
+        <h2>Resumo do conjunto de dados</h2>
         <div class="stats-grid" id="stats"></div>
         <div id="meta" class="note" style="display: none;"></div>
       </section>
 
       <section class="card">
-        <h2>Table preview</h2>
+        <h2>Prévia da tabela</h2>
         <div class="table-wrap">
           <table id="data-table">
             <thead></thead>
             <tbody></tbody>
           </table>
         </div>
-        <p class="note" id="empty-message">No data yet. Load a CSV to get started.</p>
+        <p class="note" id="empty-message">Nenhum dado ainda. Carregue um CSV para começar.</p>
       </section>
     </main>
 
-    <footer>Built with cyan, blue, green, and a love for quick insights.</footer>
+    <footer>Feito com ciano, azul, verde e paixão por insights rápidos.</footer>
 
     <script src="assets/js/common.js"></script>
     <script src="assets/js/index.js"></script>

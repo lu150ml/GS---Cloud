@@ -234,6 +234,27 @@ th {
   color: #1f2937;
 }
 
+.python-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  align-items: center;
+  margin: 0.5rem 0 1rem;
+}
+
+.python-controls label {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.python-controls select {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--gray);
+  font-size: 1rem;
+}
+
 .chart {
   height: 320px;
   width: 100%;

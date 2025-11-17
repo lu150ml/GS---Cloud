@@ -102,7 +102,7 @@ function computeCategoryStats(headers, records, textualColumns) {
   textualColumns.forEach((col) => {
     const counts = {};
     records.forEach((row) => {
-      const value = row[col] || 'Unknown';
+      const value = row[col] || 'Desconhecido';
       counts[value] = (counts[value] || 0) + 1;
     });
     const pairs = Object.entries(counts).sort((a, b) => b[1] - a[1]);
@@ -143,10 +143,10 @@ function populateStats(container, summary) {
   if (!container || !summary) return;
   container.innerHTML = '';
   const stats = [
-    { label: 'Rows', value: summary.rows },
-    { label: 'Columns', value: summary.columns },
-    { label: 'Numeric columns', value: summary.numericColumns },
-    { label: 'Text columns', value: summary.textualColumns },
+    { label: 'Linhas', value: summary.rows },
+    { label: 'Colunas', value: summary.columns },
+    { label: 'Colunas numéricas', value: summary.numericColumns },
+    { label: 'Colunas de texto', value: summary.textualColumns },
   ];
 
   stats.forEach((item) => {
@@ -160,7 +160,7 @@ function populateStats(container, summary) {
 function updateMeta(metaEl, name, headers) {
   if (!metaEl) return;
   metaEl.style.display = 'block';
-  metaEl.innerHTML = `<strong>Dataset:</strong> ${name} · <span class="badge">${headers.length} columns</span>`;
+  metaEl.innerHTML = `<strong>Conjunto:</strong> ${name} · <span class="badge">${headers.length} colunas</span>`;
 }
 
 function bestNumericColumn(stats) {
