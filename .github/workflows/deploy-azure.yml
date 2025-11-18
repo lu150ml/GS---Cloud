@@ -1,0 +1,26 @@
+name: Deploy to Azure WebApp (Python Linux)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure WebApp
+      run: |
+        az webapp deploy \
+          --resource-group rg-gs-cloud-2tsc \
+          --name webapp-luish-2tsc \
+          --src-path .
