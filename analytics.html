@@ -1,88 +1,118 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Explorer | Analytics</title>
+    <title>Explorador de Dados | Análises</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
   </head>
   <body>
     <header>
       <div class="brand">
         <div class="brand-icon">DX</div>
         <div>
-          <div>Data Explorer</div>
-          <small>CSV viewer & quick analytics</small>
+          <div>Explorador de Dados</div>
+          <small>Visualização de CSV e análises rápidas</small>
         </div>
       </div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="analytics.html">Analytics</a>
+        <a href="index.html">Início</a>
+        <a href="analytics.html">Análises</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
         <div>
-          <span class="pill">Understand your data</span>
-          <h1>Instant profiling and visual highlights.</h1>
+          <span class="pill">Entenda seus dados</span>
+          <h1>Perfil instantâneo e destaques visuais.</h1>
           <p>
-            We reuse the dataset you last opened on the Home page. You can also pick a new
-            file or reload the sample data to refresh these insights.
+            Reutilizamos o conjunto de dados que você abriu na página inicial. Você também pode
+            escolher um novo arquivo ou recarregar o exemplo para atualizar esses insights.
           </p>
         </div>
         <div class="note">
-          <strong>What you get:</strong>
+          <strong>O que você recebe:</strong>
           <ul>
-            <li>Column-level statistics for numeric fields.</li>
-            <li>Top category breakdowns for text fields.</li>
-            <li>A quick bar chart for the most informative column.</li>
+            <li>Estatísticas por coluna para campos numéricos.</li>
+            <li>Principais categorias para campos de texto.</li>
+            <li>Um gráfico rápido da coluna mais informativa.</li>
           </ul>
         </div>
       </section>
 
       <section class="controls">
         <div class="card">
-          <h2>Load or refresh data</h2>
+          <h2>Carregar ou atualizar dados</h2>
           <div class="button-row">
-            <label class="file-label" for="file-input">Choose CSV</label>
+            <label class="file-label" for="file-input">Escolher CSV</label>
             <input id="file-input" type="file" accept=".csv,text/csv" />
-            <button id="sample-btn" class="secondary">Use sample dataset</button>
+            <button id="sample-btn" class="secondary">Usar conjunto de exemplo</button>
           </div>
           <p class="note">
-            If nothing is loaded yet, we will automatically display the sample dataset so you can
-            see the analytics workflow.
+            Se nada estiver carregado, exibimos automaticamente o conjunto de exemplo para você
+            ver o fluxo de análises.
           </p>
         </div>
       </section>
 
       <section class="card">
-        <h2>Dataset overview</h2>
+        <h2>Visão geral do conjunto</h2>
         <div class="stats-grid" id="stats"></div>
         <div id="meta" class="note" style="display: none;"></div>
       </section>
 
       <section class="controls">
         <div class="card">
-          <h2>Numeric columns</h2>
-          <div id="numeric-stats" class="note">Load data to see minimums, maximums, and averages.</div>
+          <h2>Colunas numéricas</h2>
+          <div id="numeric-stats" class="note">Carregue dados para ver mínimos, máximos e médias.</div>
         </div>
         <div class="card">
-          <h2>Category highlights</h2>
-          <div id="category-stats" class="note">We will list the most frequent values for text columns.</div>
+          <h2>Destaques de categorias</h2>
+          <div id="category-stats" class="note">Listaremos os valores mais frequentes para colunas de texto.</div>
         </div>
       </section>
 
       <section class="card">
-        <h2>Visual snapshot</h2>
+        <h2>Visão rápida</h2>
         <div class="chart">
-          <canvas id="chart" width="900" height="300" aria-label="Bar chart"></canvas>
+          <canvas id="chart" width="900" height="300" aria-label="Gráfico de barras"></canvas>
         </div>
-        <p class="note" id="chart-note">Waiting for data to draw the chart.</p>
+        <p class="note" id="chart-note">Aguardando dados para desenhar o gráfico.</p>
+      </section>
+
+      <section class="card">
+        <h2>Gráficos em Python</h2>
+        <p class="note">
+          Escolha as colunas X e Y e o tipo de gráfico para gerar visualizações em Python com
+          linha, colunas ou pizza.
+        </p>
+        <div class="python-controls">
+          <label for="chart-column-x">Coluna X</label>
+          <select id="chart-column-x"></select>
+          <label for="chart-column-y">Coluna Y</label>
+          <select id="chart-column-y"></select>
+          <label for="chart-type">Tipo de gráfico</label>
+          <select id="chart-type">
+            <option value="linha">Linha</option>
+            <option value="colunas">Colunas</option>
+            <option value="pizza">Pizza</option>
+          </select>
+          <button id="render-python-chart">Gerar gráfico</button>
+        </div>
+        <div id="python-chart-status" class="note">Carregue dados para habilitar os gráficos.</div>
+        <div class="chart">
+          <img
+            id="python-chart-image"
+            alt="Gráfico gerado em Python"
+            style="display: none; max-width: 100%; height: auto;"
+          />
+        </div>
       </section>
     </main>
 
-    <footer>Analytics designed with cyan, blue, green, and readability.</footer>
+    <footer>Análises criadas com ciano, azul, verde e legibilidade.</footer>
 
     <script src="assets/js/common.js"></script>
     <script src="assets/js/analytics.js"></script>
