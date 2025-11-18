@@ -1,0 +1,21 @@
+name: Deploy to Azure WebApp
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: webapp-luish-2tsc
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+        package: .
